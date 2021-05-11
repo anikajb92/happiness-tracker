@@ -7,9 +7,9 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path.match(/login/) && req.get?
+    if req.path.match(/login/) && req.post?
       body = JSON.parse(req.body.read)
-      user = User.find_by username: body["username"]
+      user = User.find_by name: body["name"]
 
       if user
         return [
@@ -21,9 +21,25 @@ class Application
         return [
           401,
           {'Content-Type' => 'application/json'},
-          [{error: "No user found".to_json}]
+          [{error: "No user found. Unable to login"}.to_json]
         ]
       end 
+    end
+
+    if req.path.match(/entries/) && req.get?
+      return [
+        200,
+        {'Content-Type' => 'application/json'},
+        [Entry.all.to_json]
+      ]
+    end
+
+    if req.path.match(/users/) && req.get?
+      return [
+        200,
+        {'Content-Type' => 'application/json'},
+        [User.all.to_json]
+      ]
     end
   end
 

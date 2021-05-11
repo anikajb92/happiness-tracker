@@ -22,6 +22,7 @@ export default class Form extends Component {
     event.preventDefault();
     console.log(event) 
     //redirect to home page
+    //post to backend
   }
 
   render() {

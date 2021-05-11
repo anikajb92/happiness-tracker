@@ -5,8 +5,38 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Form from './components/Form'
+import Calendar from './components/Calendar'
 
 export default class App extends Component {
+
+  state = {
+
+  }
+
+  login = (name) => {
+    return fetch('http://localhost:9393/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name
+      })
+    })
+    .then(response => response.json())
+    .then(results => {
+      if(results.error){
+        alert(results.error)
+      }
+      else{
+        this.setState({
+          user: results
+        })
+      }
+      return results
+    })
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -17,12 +47,22 @@ export default class App extends Component {
               exact path="/"
               component={Home}
             />
-            <Route path="/form">
-              <Form />
-            </Route> 
-            <Route path="/login">
-              <Login />
-            </Route>
+            <Route
+              path="/calendar"
+              render={() =>
+                <Calendar
+                  
+                />
+              }
+            /> 
+            <Route 
+              path="/login"
+              render={() =>
+                <Login 
+                  login={this.login}
+                />
+              }  
+            />
           </Switch>
         </div>
     </BrowserRouter>

@@ -47,7 +47,7 @@
 
 body {
   font-family: 'league_spartanbold';
-  background-image: url('./images/Background.png');
+  /* background-image: url('./images/Background.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

@@ -1,7 +1,7 @@
 Entry.destroy_all
 User.destroy_all
 
-user1 = User.create(name: "Anika Bernstein", username: "Anika")
+user1 = User.create(name: "Anika Bernstein")
 
 Entry.create(
   date: "05-09-2021",
