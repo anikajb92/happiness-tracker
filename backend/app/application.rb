@@ -14,7 +14,7 @@ class Application
       if user
         return [
           200, 
-          {'content-Type' => 'application.json'},
+          {'Content-Type' => 'application/json'},
           [user.to_json]
         ]
       else 
