@@ -34,8 +34,12 @@ class Application
       ]
     elsif req.path.match(/entries/) && req.post?
       entry = JSON.parse(req.body.read)
-      new_entry = Entry.create(entry)
-      return create(new_donut)
+      new_entry = Entry.create entry
+      return [
+        201, 
+        {'Content-Type' => 'application/json'}, 
+        [new_entry.to_json]
+      ]
     end 
 
     if req.path.match(/users/) && req.get?
@@ -52,10 +56,6 @@ class Application
         {'Content-Type' => 'application/json'},
         [User.first.all_dates.to_json]
       ]
-    end 
-
-    def create donut 
-      [201, {'Content-Type' => 'application/json'}, [entry.to_json]]
     end 
   end
 

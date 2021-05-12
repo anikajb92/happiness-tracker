@@ -8,11 +8,11 @@ export default function Calendar() {
     fetch("http://localhost:9393/dates")
       .then(response => response.json())
       .then(dates => {
-        
+
       })
   }
   
-  const dateValue: Date = new Date(new Date().getFullYear(), new Date().getMonth(), 8);
+  const dateValue: Date = new Date(new Date().getFullYear(), new Date().getMonth(), 11);
 
   return (
     <div>
