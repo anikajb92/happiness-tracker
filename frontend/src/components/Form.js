@@ -56,6 +56,7 @@ export default class Form extends Component {
               max="10"
               name="mood" 
               value={this.state.mood}
+              onChange={this.handleChange}
             ></input>
           </label>
           <br/>
@@ -80,6 +81,7 @@ export default class Form extends Component {
               type="number" 
               name="weather" 
               value={this.state.weather}
+              onChange={this.handleChange}
             ></input>
           </label>
           <br/>
