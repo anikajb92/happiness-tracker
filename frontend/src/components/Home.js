@@ -5,7 +5,7 @@ export default function Home(props) {
   return (
     <div>
       <p>HOME</p>
-      <Form />
+      <Form selectedDate={props.selectedDate}/>
     </div>
   )
 }

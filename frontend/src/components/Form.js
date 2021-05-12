@@ -14,6 +14,17 @@ export default class Form extends Component {
     }
   }
 
+  componentDidMount() {
+    const date = new Date(this.props.selectedDate)
+    const month = (date.getMonth() + 1) < 9 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
+    const day = (date.getDate()) < 9 ? `0${date.getDate()}` : date.getDate()
+    const formattedDate = `${date.getFullYear()}-${month}-${day}`
+
+    this.setState({
+      values: {...this.state.values, date: formattedDate}
+    })
+  }
+
   handleChange = (event) => {
     this.setState({
       values: {...this.state.values, 

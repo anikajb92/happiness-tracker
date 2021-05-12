@@ -5,8 +5,6 @@ import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
 
 export default class Calendar extends Component {
   
-  // dateValue: Date = new Date(new Date().getFullYear(), new Date().getMonth(), 11);
-
   state = {
     dates: []
   }
@@ -29,6 +27,7 @@ render() {
       <CalendarComponent 
         values={this.state.dates}
         isMultiSelection={true}
+        change={this.props.selectDate}
       />
     </div>
   )

@@ -10,7 +10,8 @@ import Calendar from './components/Calendar'
 export default class App extends Component {
 
   state = {
-    user: {}
+    user: {},
+    selectedDate: null
   }
 
   login = (name) => {
@@ -38,16 +39,27 @@ export default class App extends Component {
     })
   }
 
+  selectDate = (click) => {
+    console.log("calendar was clicked", click)
+    if (click.value){
+      this.setState({
+        selectedDate: click.value
+      })
+    }
+  }
+
   render() {
     return (
-        <div>
+        <div className="container">
           <Navbar />
+          <div >
           <Switch>
             <Route 
               exact path="/"
               render={() => 
                 <Home
                   user={this.state.user}
+                  selectedDate={this.state.selectedDate}
                 />
               }
             />
@@ -55,7 +67,7 @@ export default class App extends Component {
               path="/calendar"
               render={() =>
                 <Calendar
-                  
+                  selectDate={this.selectDate}
                 />
               }
             /> 
@@ -69,6 +81,7 @@ export default class App extends Component {
               }  
             />
           </Switch>
+          </div>
         </div>
     )
   }
