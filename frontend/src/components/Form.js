@@ -4,12 +4,12 @@ export default class Form extends Component {
 
   state = {
     date: "",
-    mood: "",
-    meditation: null,
+    mood: 0,
+    meditation: [],
     workout: null,
     creative: null,
     weather: null,
-    sleep: null
+    sleep: 0
   }
 
   handleChange = (event) => {
@@ -22,17 +22,28 @@ export default class Form extends Component {
     event.preventDefault();
     console.log(event) 
     //redirect to home page
-    //post to backend
+    fetch('http://localhost:9393/entries', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        entry: event
+      })
+    })
+    alert('Your form has been submitted for' + this.state.date)
   }
 
   render() {
+    console.log(this.state.date)
     return (
       <div>
          <form onSubmit={this.handleSubmit}>
            <label> Entry Date:
             <input 
               type="date" 
-              name="Date" 
+              name="date" 
               value={this.state.date}
               onChange={this.handleChange}
             ></input>
@@ -41,42 +52,42 @@ export default class Form extends Component {
           <label> Overall mood?
             <input 
               type="range"
-              min="1"
+              min="0"
               max="10"
-              name="Mood" 
+              name="mood" 
               value={this.state.mood}
             ></input>
           </label>
           <br/>
           <label> Did you meditate today?
-            <select name="Meditation" value={this.state.meditate} onChange={this.handleChange}>
+            <select name="meditation" value={this.state.meditation} onChange={this.handleChange}>
               <option selected value="null">Please select an answer</option>
-              <option value="Yes">Yes, I'm zen</option>
-              <option value="No">No</option>
+              <option value="true">Yes, I'm zen</option>
+              <option value="false">No</option>
             </select>
           </label>
           <br/>
           <label> Did you workout today?
-            <select name="Workout" value={this.state.workout} onChange={this.handleChange}>
+            <select name="workout" value={this.state.workout} onChange={this.handleChange}>
               <option selected value="null">Please select an answer</option>
-              <option value="Yes">Yes, I'm sweaty</option>
-              <option value="No">No</option>
+              <option value="true">Yes, I'm sweaty</option>
+              <option value="false">No</option>
             </select>
           </label>
           <br/>
           <label> How was the weather?
             <input 
-              type="range" 
-              name="Weather" 
+              type="number" 
+              name="weather" 
               value={this.state.weather}
             ></input>
           </label>
           <br/>
           <label> Were you creative today?
-          <select name="Creative" value={this.state.creative} onChange={this.handleChange}>
+          <select name="creative" value={this.state.creative} onChange={this.handleChange}>
               <option selected value="null">Please select an answer</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
           </label>
           <br/>
@@ -85,7 +96,7 @@ export default class Form extends Component {
               type="number" 
               min="0"
               max="12"
-              name="Sleep" 
+              name="sleep" 
               value={this.state.sleep}
               onChange={this.handleChange}
             ></input>

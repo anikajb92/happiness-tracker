@@ -25,7 +25,7 @@ export default class Login extends Component {
             error: response.error
           })
       }
-      })
+    })
   }
 
   render() {

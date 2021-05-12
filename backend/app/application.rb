@@ -13,7 +13,7 @@ class Application
 
       if user
         return [
-          200, 
+          201, 
           {'Content-Type' => 'application/json'},
           [user.to_json]
         ]
@@ -32,7 +32,11 @@ class Application
         {'Content-Type' => 'application/json'},
         [Entry.all.to_json]
       ]
-    end
+    elsif req.path.match(/entries/) && req.post?
+      entry = JSON.parse(req.body.read)
+      new_entry = Entry.create(entry)
+      return create(new_donut)
+    end 
 
     if req.path.match(/users/) && req.get?
       return [
@@ -41,6 +45,18 @@ class Application
         [User.all.to_json]
       ]
     end
+
+    if req.path.match(/dates/) && req.get?
+      return [
+        200,
+        {'Content-Type' => 'application/json'},
+        [User.first.all_dates.to_json]
+      ]
+    end 
+
+    def create donut 
+      [201, {'Content-Type' => 'application/json'}, [entry.to_json]]
+    end 
   end
 
 end

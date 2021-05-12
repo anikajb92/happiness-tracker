@@ -4,7 +4,7 @@ User.destroy_all
 user1 = User.create(name: "Anika Bernstein")
 
 Entry.create(
-  date: "05-09-2021",
+  date: "09-05-2021",
   user: user1,
   mood: 6,
   meditation: false,
@@ -15,7 +15,7 @@ Entry.create(
   sleep: 8
 )
 Entry.create(
-  date: "05-10-2021",
+  date: "10-05-2021",
   user: user1,
   mood: 8,
   meditation: true,

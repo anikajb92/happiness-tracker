@@ -39,7 +39,6 @@ export default class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
         <div>
           <Navbar />
           <Switch>
@@ -57,15 +56,15 @@ export default class App extends Component {
             /> 
             <Route 
               path="/login"
-              render={() =>
+              render={(routerprops) =>
                 <Login 
                   login={this.login}
+                  {...routerprops}
                 />
               }  
             />
           </Switch>
         </div>
-    </BrowserRouter>
     )
   }
 }
