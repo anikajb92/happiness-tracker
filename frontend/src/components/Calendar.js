@@ -1,27 +1,36 @@
 import React from 'react'
 import '../Calendar.css'
+import {Component} from 'react'
 import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
 
-export default function Calendar() {
+export default class Calendar extends Component {
+  
+  // dateValue: Date = new Date(new Date().getFullYear(), new Date().getMonth(), 11);
 
-  const getData = () => {
+  state = {
+    dates: []
+  }
+
+  componentDidMount() {
     fetch("http://localhost:9393/dates")
       .then(response => response.json())
       .then(dates => {
-
+        const newDates = dates.map(date => new Date(date))
+        this.setState({
+          dates: newDates
+        })
       })
   }
-  
-  const dateValue: Date = new Date(new Date().getFullYear(), new Date().getMonth(), 11);
 
+render() {
   return (
     <div>
-      {getData()}
       <h1> Calendar Here </h1>
       <CalendarComponent 
-        value={dateValue}
+        values={this.state.dates}
         isMultiSelection={true}
       />
     </div>
   )
+}
 }

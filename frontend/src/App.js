@@ -10,7 +10,7 @@ import Calendar from './components/Calendar'
 export default class App extends Component {
 
   state = {
-
+    user: {}
   }
 
   login = (name) => {
@@ -32,6 +32,7 @@ export default class App extends Component {
         this.setState({
           user: results
         })
+        localStorage.setItem("id", results.id)
       }
       return results
     })
@@ -44,7 +45,11 @@ export default class App extends Component {
           <Switch>
             <Route 
               exact path="/"
-              component={Home}
+              render={() => 
+                <Home
+                  user={this.state.user}
+                />
+              }
             />
             <Route
               path="/calendar"

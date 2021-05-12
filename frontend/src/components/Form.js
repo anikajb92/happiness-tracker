@@ -24,14 +24,14 @@ export default class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.values);
+    console.log("form values logged as", this.state.values);
     fetch('http://localhost:9393/entries', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify(this.state.values)
+      body: JSON.stringify({...this.state.values, user_id: localStorage.id})
     })
   }
 
