@@ -1,7 +1,5 @@
 import React from 'react';
 import {BrowserRoute as Router, Switch, Route, Link} from 'react-router-dom';
-import logo from '../images/logo.png'
-
 
 export default function NavBar(props) {
 
