@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+  .AppContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .orb {
+    height: 100px;
+    width: 100px;
+    border-radius: 200px;
+    background: #1F7A8C;
+    margin: auto;
+    margin-top: 200px;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .orb_1 {
+    animation-name:orb_1;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+  }
+  
+  @keyframes orb_1 {
+    from { transform: scale(1); background: #DB222A;}
+       to { transform: scale(3); background: #BFDBF7;}
+  }
+  

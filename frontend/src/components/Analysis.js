@@ -50,7 +50,7 @@ export default class Analysis extends Component {
           data={this.state.dateMood}
           options={{
             hAxis: {
-              title: 'Time',
+              title: 'Days In The Month Of May, 2021',
             },
             vAxis: {
               title: 'Happiness',

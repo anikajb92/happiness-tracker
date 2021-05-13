@@ -35,20 +35,44 @@
 
 body {
   font-family: 'league_spartanbold';
-  background-image: url('./images/blue.png');
+  /* background-image: url('./images/blue.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
 .container{
-  height: 100vh;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  padding-left: 5%;
-  padding-right: 5%;
+  width: 280px;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  border: solid (241,196,15);
+  border-radius: 19px;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
+  position: relative;
+  overflow: hidden;
 }
+
+/* .yellow{
+  width: 160%;
+  min-height: 550px;
+  z-index: 5;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50%;
+  transform: rotate(60deg);
+  top: -290px;
+  left: -70px;
+  background: rgb(241,196,15);
+  background: linear-gradient(
+    58deg,
+    rgba(241,196,15,1) 20%,
+    rgba(243,172,18,1) 100%
+  );
+  margin: 1px;
+} */
 
 .navbar{
   width: 100%;
@@ -58,18 +82,82 @@ body {
   align-items: center;
 }
 
+.topContainer{
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1.8em;
+  padding-bottom: 5em;
+}
+
+.navHeader{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.navHeaderText h1{
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.24;
+  color: #fff;
+  z-index: 10;
+  margin: 0;
+}
+
 .logo h1{
   font-size: 4rem;
   color: yellow;
 }
 
 nav{
-  flex: 1;
-  padding-left: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
-nav ul li{
+nav .link{
   display: inline-block;
   list-style: none;
+  text-decoration: none;
   margin: 0px 20px;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form input{
+  width: 80%;
+  height: 42px;
+  outline: none;
+  border-radius: 100px 100px 100px 100px;
+  border: 0.5px solid rgba(200,200,200, 0.0.3);
+  padding: 0px 10px;
+  border-bottom: 1.4px solid transparent;
+}
+
+.form .button{
+  width: 100%;
+  padding: 11px 40%;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 100px 100px 100px 100px;
+  cursor: pointer;
+  transition: all, 240ms ease-in-out;
+  background: rgb(241,196,15);
+  background: linear-gradient(
+    58deg,
+    rgba(241,196,15,1) 20%,
+    rgba(243,172,18,1) 100%
+  );
+}
+
+.form .button:hover{
+  filter: brightness(1.03);
 }

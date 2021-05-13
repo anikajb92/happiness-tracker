@@ -8,6 +8,7 @@ export default function Home(props) {
     <div>
       <p>Find Your Happy</p>
       <p>HOME</p>
+      <h1>Welcome, Anika Bernstein</h1> 
       <br/>
       <p>FORM</p>
       <Form selectedDate={props.selectedDate}/>

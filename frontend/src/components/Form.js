@@ -50,7 +50,10 @@ export default class Form extends Component {
     console.log(this.state.date)
     return (
       <div>
-         <form onSubmit={this.handleSubmit}>
+        <form 
+          className="form"
+          onSubmit={this.handleSubmit}
+        >
            <label> Entry Date:
             <input 
               type="date" 
@@ -117,7 +120,10 @@ export default class Form extends Component {
             ></input>
           </label>
           <br/>
-        <input type="submit" />
+        <input 
+          className="button"
+          type="submit" 
+        />
       </form>
       </div>
     )

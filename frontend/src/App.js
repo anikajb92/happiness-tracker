@@ -1,12 +1,12 @@
-import './App.css'
-import React, { Component } from 'react'
+import './App.css';
+import React, { Component } from 'react';
 import {BrowserRouter, Router, Switch, Route, Link} from 'react-router-dom';
-import Home from './components/Home'
-import Login from './components/Login'
-import Navbar from './components/Navbar'
-import Form from './components/Form'
-import Calendar from './components/Calendar'
-import Analysis from './components/Analysis'
+import Home from './components/Home';
+import Login from './components/Login';
+import Navbar from './components/Navbar';
+import Form from './components/Form';
+import Calendar from './components/Calendar';
+import Analysis from './components/Analysis';
 
 export default class App extends Component {
 
@@ -52,46 +52,46 @@ export default class App extends Component {
   render() {
     return (
         <div className="container">
-          <Navbar />
-          <div >
-          <Switch>
-            <Route 
-              exact path="/"
-              render={() => 
-                <Home
-                  user={this.state.user}
-                  selectDate={this.selectDate}
-                  selectedDate={this.state.selectedDate}
-                />
-              }
-            />
-            <Route
-              path="/calendar"
-              render={() =>
-                <Calendar
-                  selectDate={this.selectDate}
-                />
-              }
-            /> 
-            <Route
-              path="/analysis"
-              render={() =>
-                <Analysis
-                  selectDate={this.selectDate}
-                />
-              }
-            /> 
-            <Route 
-              path="/login"
-              render={(routerprops) =>
-                <Login 
-                  login={this.login}
-                  {...routerprops}
-                />
-              }  
-            />
-          </Switch>
-          </div>
+            <Navbar />
+            <div >
+            <Switch>
+              <Route 
+                exact path="/"
+                render={() => 
+                  <Home
+                    user={this.state.user}
+                    selectDate={this.selectDate}
+                    selectedDate={this.state.selectedDate}
+                  />
+                }
+              />
+              <Route
+                path="/calendar"
+                render={() =>
+                  <Calendar
+                    selectDate={this.selectDate}
+                  />
+                }
+              /> 
+              <Route
+                path="/analysis"
+                render={() =>
+                  <Analysis
+                    selectDate={this.selectDate}
+                  />
+                }
+              /> 
+              <Route 
+                path="/login"
+                render={(routerprops) =>
+                  <Login 
+                    login={this.login}
+                    {...routerprops}
+                  />
+                }  
+              />
+            </Switch>
+            </div>
         </div>
     )
   }

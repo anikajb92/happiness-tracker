@@ -30,16 +30,22 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="topContainer">
         <p>Please Enter Your Full Name</p>
-        <form onSubmit={this.handleSubmit}>
+        <form 
+          className="form"
+          onSubmit={this.handleSubmit}
+        >
           <input  
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
           />
-          <input type="submit" />
+          <input 
+            className="button"
+            type="submit" 
+          />
         </form>
         {this.state.error ? <p>{this.state.error}</p> : null}
       </div>
