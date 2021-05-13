@@ -74,7 +74,6 @@ export default class App extends Component {
         <div className="boxContainer">
             <Welcome 
               user={this.state.user}
-              logged={this.state.isLoggedIn}
             />
             <div className="common">
               <Switch>
@@ -117,7 +116,15 @@ export default class App extends Component {
                     />
                   }  
                 />
-                <Navbar logged={this.state.isLoggedIn}/>
+                <Route 
+                  path="/login"
+                  render={(routerprops) =>
+                    <Login 
+                      login={this.login}
+                      {...routerprops}
+                    />
+                  }  
+                />
               </>) : (
                 <Route 
                   path="/login"
@@ -131,6 +138,7 @@ export default class App extends Component {
               )}
               </Switch>
               </div>
+              <Navbar logged={this.state.isLoggedIn}/>
         </div>
     )
   }
