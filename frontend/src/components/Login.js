@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 export default class Login extends Component {
 
- 
   state = {
-    username: ""
+    name: "",
+    error: ""
   }
 
   handleChange = (event) => {
@@ -15,25 +15,33 @@ export default class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.login(this.state.username)
-      .then(res => this.props.history.push('/home')) //redirect to home page
-
+    this.props.login(this.state.name)
+      .then(response => {
+        if(response.id){
+          this.props.history.push('/')
+        }
+        else {
+          this.setState({
+            error: response.error
+          })
+      }
+    })
   }
 
   render() {
     return (
       <div>
-        <p>Please Log In</p>
+        <p>Please Enter Your Full Name</p>
         <form onSubmit={this.handleSubmit}>
-          <input 
-            type="text" 
-            name="username" 
-            value={this.state.username}
+          <input  
+            type="text"
+            name="name"
+            value={this.state.name}
             onChange={this.handleChange}
-          ></input>
+          />
           <input type="submit" />
         </form>
-        {this.state.error? <p>{this.state.error}</p> : null}
+        {this.state.error ? <p>{this.state.error}</p> : null}
       </div>
     )
   }

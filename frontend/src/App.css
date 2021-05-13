@@ -1,18 +1,9 @@
-/* @font-face {
+@font-face {
   font-family: 'league_spartanbold';
   src: url('./fonts/leaguespartan-bold-webfont.woff2') format('woff2'),
        url('./fonts/leaguespartan-bold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-} */
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -32,9 +23,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -43,4 +31,45 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  font-family: 'league_spartanbold';
+  background-image: url('./images/blue.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.container{
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.navbar{
+  width: 100%;
+  height: 15vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo h1{
+  font-size: 4rem;
+  color: yellow;
+}
+
+nav{
+  flex: 1;
+  padding-left: 50px;
+}
+
+nav ul li{
+  display: inline-block;
+  list-style: none;
+  margin: 0px 20px;
 }
