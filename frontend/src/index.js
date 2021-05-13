@@ -7,9 +7,11 @@ import {BrowserRouter, Router, Switch, Route, Link} from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
+    <div className="AppContainer">
+      <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

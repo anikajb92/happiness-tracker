@@ -1,6 +1,24 @@
-body {
+@font-face {
+  font-family: 'league_spartanbold';
+  src: url('./fonts/leaguespartan-bold-webfont.woff2') format('woff2'),
+       url('./fonts/leaguespartan-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+  
+* {
+  box-sizing: border-box;
+}
+  
+  body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'league_spartanbold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,3 +29,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+  .AppContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .orb {
+    height: 100px;
+    width: 100px;
+    border-radius: 200px;
+    background: #1F7A8C;
+    margin: auto;
+    margin-top: 200px;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .orb_1 {
+    animation-name:orb_1;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+  }
+  
+  @keyframes orb_1 {
+    from { transform: scale(1); background: #DB222A;}
+       to { transform: scale(3); background: #BFDBF7;}
+  }
+  

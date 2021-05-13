@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'league_spartanbold';
-  src: url('./fonts/leaguespartan-bold-webfont.woff2') format('woff2'),
-       url('./fonts/leaguespartan-bold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -12,7 +6,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -21,7 +15,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 
 @keyframes App-logo-spin {
@@ -35,19 +29,150 @@
 
 body {
   font-family: 'league_spartanbold';
-  background-image: url('./images/blue.png');
+  /* background-image: url('./images/blue.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.container{
-  height: 100vh;
+/* Visible Frame */
+
+.boxContainer{
+  width: 320px;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  border: solid (241,196,15);
+  border-radius: 19px;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.topContainer{
   width: 100%;
-  background-position: center;
-  background-size: cover;
-  padding-left: 5%;
-  padding-right: 5%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1.8em;
+  padding-bottom: 5em;
+}
+
+.yellowBackDrop{
+  width: 160%;
+  min-height: 550px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50%;
+  transform: rotate(60deg);
+  top: -290px;
+  left: -70px;
+  background: rgb(241,196,15);
+  background: linear-gradient(
+    58deg,
+    rgba(241,196,15,1) 20%,
+    rgba(243,172,18,1) 100%
+  );
+  margin: 1px;
+}
+
+.welcomeHeader{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: rotate(0deg);
+}
+
+.welcomeHeaderText{
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.24;
+  color: #fff;
+  z-index: 10;
+  margin: 0;
+}
+
+/* Content */
+
+.common{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Content: Login */
+
+.login{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button#loginSubmit{
+  margin: 50px 0px 20px 0px;
+}
+
+/* Content: Form */
+.form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form input{
+  width: 80%;
+  height: 42px;
+  outline: none;
+  border-radius: 100px 100px 100px 100px;
+  border: 0.5px solid rgba(200,200,200, 0.0.3);
+  padding: 0px 10px;
+}
+
+.form input:focus{
+  outline: none;
+  border-bottom: rgb(241,196,15);
+}
+
+.form input:last-of-type{
+  border-bottom: 1.5px solid rgba(200,200,200, 0.4);
+}
+
+.form .button{
+  width: 90%;
+  padding: 11px 40%;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 100px 100px 100px 100px;
+  cursor: pointer;
+  transition: all, 240ms ease-in-out;
+  background: rgb(241,196,15);
+  background: linear-gradient(
+    58deg,
+    rgba(241,196,15,1) 20%,
+    rgba(243,172,18,1) 100%
+  );
+}
+
+.form .button:hover{
+  filter: brightness(1.03);
+}
+
+.placeholder {
+  color: rgb(55,117,246);
+}
+
+/* Footer Navigation */
+.navsection{
+  left: -100px;
+  right: 100px;
 }
 
 .navbar{
@@ -64,12 +189,40 @@ body {
 }
 
 nav{
-  flex: 1;
-  padding-left: 50px;
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+  margin: 10px;
+  border-top: 0.5px solid rgb(241,196,15, 0.5);
+  background-color: rgb(241,196,15);
+  background: linear-gradient(
+    58deg,
+    rgba(241,196,15,1) 20%,
+    rgba(243,172,18,1) 100%
+  );}
+
+nav .icon {
+  background-color: rgb(241,196,15);
+  background: linear-gradient(
+    58deg,
+    rgba(241,196,15,1) 20%,
+    rgba(243,172,18,1) 100%
+  );
+  color: #fff;
+  border-radius: 50%;
+  margin-top: 10px;
+  padding: 1px;
 }
 
-nav ul li{
-  display: inline-block;
-  list-style: none;
-  margin: 0px 20px;
+nav .iconc {
+  background-color: rgb(241,196,15);
+  background: linear-gradient(
+    58deg,
+    rgba(241,196,15,1) 20%,
+    rgba(243,172,18,1) 100%
+  );
+  color: #fff;
+  border-radius: 50%;
+  margin-top: 10px;
+  padding: 2px;
 }

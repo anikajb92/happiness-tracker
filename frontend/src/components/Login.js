@@ -18,7 +18,7 @@ export default class Login extends Component {
     this.props.login(this.state.name)
       .then(response => {
         if(response.id){
-          this.props.history.push('/')
+          this.props.history.push('/calendar')
         }
         else {
           this.setState({
@@ -30,16 +30,24 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
-        <p>Please Enter Your Full Name</p>
-        <form onSubmit={this.handleSubmit}>
+      <div className="login">
+        <h3 style={{display:"flex", justifyContent:"center"}}>Please Enter Your Full Name</h3>
+        <form 
+          className="form"
+          onSubmit={this.handleSubmit}
+        >
           <input  
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
           />
-          <input type="submit" />
+          <input 
+            id="loginSubmit"
+            className="button"
+            type="submit"
+            value="Sign In" 
+          />
         </form>
         {this.state.error ? <p>{this.state.error}</p> : null}
       </div>

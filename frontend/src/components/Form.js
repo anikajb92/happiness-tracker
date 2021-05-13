@@ -4,11 +4,12 @@ export default class Form extends Component {
 
   state = {
     values: {
-      date: "",
+      date: "mm/dd/yyyy",
       mood: 5,
       meditation: [],
       workout: null,
       creative: null,
+      social: null,
       weather: 5,
       sleep: 5
     }
@@ -44,17 +45,23 @@ export default class Form extends Component {
       },
       body: JSON.stringify({...this.state.values, user_id: localStorage.id})
     })
+    .then(response => response.json())
+    .then(results => console.log("once data gets posted to backend, results show", results))
   }
 
   render() {
     console.log(this.state.date)
     return (
       <div>
-         <form onSubmit={this.handleSubmit}>
+        <form 
+          className="form"
+          onSubmit={this.handleSubmit}
+        >
            <label> Entry Date:
             <input 
               type="date" 
               name="date" 
+              className="placeholder"
               value={this.state.values.date}
               onChange={this.handleChange}
             ></input>
@@ -70,10 +77,9 @@ export default class Form extends Component {
               onChange={this.handleChange}
             ></input>
           </label>
-          <br/>
           <label> Did you meditate today?
             <select name="meditation" value={this.state.values.meditation} onChange={this.handleChange}>
-              <option selected value="null">Please select an answer</option>
+              <option className="placeholder" selected value="null">Please select</option>
               <option value="true">Yes, I'm zen</option>
               <option value="false">No</option>
             </select>
@@ -81,7 +87,7 @@ export default class Form extends Component {
           <br/>
           <label> Did you workout today?
             <select name="workout" value={this.state.values.workout} onChange={this.handleChange}>
-              <option selected value="null">Please select an answer</option>
+              <option className="placeholder" selected value="null">Please select</option>
               <option value="true">Yes, I'm sweaty</option>
               <option value="false">No</option>
             </select>
@@ -97,10 +103,17 @@ export default class Form extends Component {
               onChange={this.handleChange}
             ></input>
           </label>
-          <br/>
           <label> Were you creative today?
           <select name="creative" value={this.state.values.creative} onChange={this.handleChange}>
-              <option selected value="null">Please select an answer</option>
+              <option selected value="null">Please select</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </label>
+          <br/>
+          <label> Were you social today?
+          <select name="social" value={this.state.values.social} onChange={this.handleChange}>
+              <option selected value="null">Please select</option>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
@@ -117,7 +130,10 @@ export default class Form extends Component {
             ></input>
           </label>
           <br/>
-        <input type="submit" />
+        <input 
+          className="button"
+          type="submit" 
+        />
       </form>
       </div>
     )
