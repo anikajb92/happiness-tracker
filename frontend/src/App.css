@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'league_spartanbold';
-  src: url('./fonts/leaguespartan-bold-webfont.woff2') format('woff2'),
-       url('./fonts/leaguespartan-bold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -12,7 +6,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -21,7 +15,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 
 @keyframes App-logo-spin {
@@ -41,7 +35,7 @@ body {
   background-attachment: fixed;
 }
 
-.container{
+.boxContainer{
   width: 280px;
   min-height: 550px;
   display: flex;
@@ -54,10 +48,19 @@ body {
   overflow: hidden;
 }
 
-/* .yellow{
+.topContainer{
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1.8em;
+  padding-bottom: 5em;
+}
+
+.yellowBackDrop{
   width: 160%;
   min-height: 550px;
-  z-index: 5;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -72,6 +75,30 @@ body {
     rgba(243,172,18,1) 100%
   );
   margin: 1px;
+}
+
+.welcomeHeader{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: rotate(0deg);
+}
+
+.welcomeHeaderText{
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.24;
+  color: #fff;
+  z-index: 10;
+  margin: 0;
+}
+
+/* .common{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 } */
 
 .navbar{
@@ -80,31 +107,6 @@ body {
   margin: auto;
   display: flex;
   align-items: center;
-}
-
-.topContainer{
-  width: 100%;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 1.8em;
-  padding-bottom: 5em;
-}
-
-.navHeader{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.navHeaderText h1{
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1.24;
-  color: #fff;
-  z-index: 10;
-  margin: 0;
 }
 
 .logo h1{
@@ -140,6 +142,15 @@ nav .link{
   border-bottom: 1.4px solid transparent;
 }
 
+.form input:focus{
+  outline: none;
+  border-bottom: rgb(241,196,15);
+}
+
+.form input:last-of-type{
+  border-bottom: 1.5px solid rgba(200,200,200, 0.4);
+}
+
 .form .button{
   width: 100%;
   padding: 11px 40%;
@@ -160,4 +171,8 @@ nav .link{
 
 .form .button:hover{
   filter: brightness(1.03);
+}
+
+.placeholder {
+  color: rgb(241,196,15);
 }

@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import {BrowserRouter, Router, Switch, Route, Link} from 'react-router-dom';
+import Welcome from './components/Welcome';
 import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
@@ -51,9 +52,9 @@ export default class App extends Component {
 
   render() {
     return (
-        <div className="container">
-            <Navbar />
-            <div >
+        <div className="boxContainer">
+            <Welcome user={this.state.user}/>
+            <div className="common">
             <Switch>
               <Route 
                 exact path="/"
@@ -67,9 +68,10 @@ export default class App extends Component {
               />
               <Route
                 path="/calendar"
-                render={() =>
+                render={(routerprops) =>
                   <Calendar
                     selectDate={this.selectDate}
+                    {...routerprops}
                   />
                 }
               /> 
@@ -90,8 +92,19 @@ export default class App extends Component {
                   />
                 }  
               />
+              <Route 
+                path="/form"
+                render={(routerprops) =>
+                  <Form 
+                    user={this.state.user}
+                    selectedDate={this.state.selectedDate}
+                    selectDate={this.selectDate}
+                  />
+                }  
+              />
             </Switch>
             </div>
+            <Navbar />
         </div>
     )
   }

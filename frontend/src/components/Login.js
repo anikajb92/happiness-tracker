@@ -18,7 +18,7 @@ export default class Login extends Component {
     this.props.login(this.state.name)
       .then(response => {
         if(response.id){
-          this.props.history.push('/')
+          this.props.history.push('/calendar')
         }
         else {
           this.setState({
@@ -30,7 +30,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="topContainer">
+      <div className="login">
         <p>Please Enter Your Full Name</p>
         <form 
           className="form"

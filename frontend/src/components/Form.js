@@ -58,6 +58,7 @@ export default class Form extends Component {
             <input 
               type="date" 
               name="date" 
+              className="placeholder"
               value={this.state.values.date}
               onChange={this.handleChange}
             ></input>
@@ -76,7 +77,7 @@ export default class Form extends Component {
           <br/>
           <label> Did you meditate today?
             <select name="meditation" value={this.state.values.meditation} onChange={this.handleChange}>
-              <option selected value="null">Please select an answer</option>
+              <option className="placeholder" selected value="null">Please select</option>
               <option value="true">Yes, I'm zen</option>
               <option value="false">No</option>
             </select>
@@ -84,7 +85,7 @@ export default class Form extends Component {
           <br/>
           <label> Did you workout today?
             <select name="workout" value={this.state.values.workout} onChange={this.handleChange}>
-              <option selected value="null">Please select an answer</option>
+              <option className="placeholder" selected value="null">Please select</option>
               <option value="true">Yes, I'm sweaty</option>
               <option value="false">No</option>
             </select>
