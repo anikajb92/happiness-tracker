@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Navbar from './components/Navbar'
 import Form from './components/Form'
 import Calendar from './components/Calendar'
+import Analysis from './components/Analysis'
 
 export default class App extends Component {
 
@@ -59,6 +60,7 @@ export default class App extends Component {
               render={() => 
                 <Home
                   user={this.state.user}
+                  selectDate={this.selectDate}
                   selectedDate={this.state.selectedDate}
                 />
               }
@@ -67,6 +69,14 @@ export default class App extends Component {
               path="/calendar"
               render={() =>
                 <Calendar
+                  selectDate={this.selectDate}
+                />
+              }
+            /> 
+            <Route
+              path="/analysis"
+              render={() =>
+                <Analysis
                   selectDate={this.selectDate}
                 />
               }

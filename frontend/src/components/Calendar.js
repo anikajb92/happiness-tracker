@@ -23,7 +23,7 @@ export default class Calendar extends Component {
 render() {
   return (
     <div>
-      <h1> Calendar Here </h1>
+      {/* <h1> Calendar Here </h1> */}
       <CalendarComponent 
         values={this.state.dates}
         isMultiSelection={true}

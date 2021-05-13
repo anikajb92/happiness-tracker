@@ -57,6 +57,14 @@ class Application
         [User.first.all_dates.to_json]
       ]
     end 
+
+    if req.path.match(/moods/) && req.get?
+      return [
+        200,
+        {'Content-Type' => 'application/json'},
+        [User.first.moods.to_json]
+      ]
+    end 
   end
 
 end

@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
     end 
   end
 
+  def moods
+    self.entries.map do |entry|
+      date = entry.date.strftime("%d").to_i
+      [date, entry.mood]
+    end.sort
+  end 
+
 end 

@@ -5,12 +5,12 @@ export default class Form extends Component {
   state = {
     values: {
       date: "",
-      mood: 0,
+      mood: 5,
       meditation: [],
       workout: null,
       creative: null,
-      weather: null,
-      sleep: 0
+      weather: 5,
+      sleep: 5
     }
   }
 
@@ -89,7 +89,9 @@ export default class Form extends Component {
           <br/>
           <label> How was the weather?
             <input 
-              type="number" 
+              type="range" 
+              min="0"
+              max="10"
               name="weather" 
               value={this.state.values.weather}
               onChange={this.handleChange}
@@ -106,7 +108,7 @@ export default class Form extends Component {
           <br/>
           <label> How many hours of sleep did you get last night?
             <input 
-              type="number" 
+              type="range" 
               min="0"
               max="12"
               name="sleep" 
