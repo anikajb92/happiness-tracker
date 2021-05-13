@@ -22,7 +22,7 @@ export default class Analysis extends Component {
   something = (results) => {
     console.log("results", results)
     const eachDay = results.map(i => i )
-    eachDay.unshift(['x', 'mood'])
+    eachDay.unshift(['x', 'mood', 'weather', 'sleep'])
     eachDay.sort(function(a, b) {
       return a - b;
     })

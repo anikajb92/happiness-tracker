@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   def moods
     self.entries.map do |entry|
       date = entry.date.strftime("%d").to_i
-      [date, entry.mood]
+      [date, entry.mood, entry.weather, entry.sleep]
     end.sort
   end 
 
