@@ -20,9 +20,9 @@ export default class Calendar extends Component {
       })
   }
 
-  handleClick = () => {
-    this.props.history.push('/form')
-  }
+  // handleClick = () => {
+  //   this.props.history.push('/form')
+  // }
 
 render() {
   return (
@@ -32,7 +32,7 @@ render() {
         values={this.state.dates}
         isMultiSelection={true}
         change={this.props.selectDate}
-        onClick={this.handleClick}
+        // onClick={this.handleClick}
       />
     </div>
   )

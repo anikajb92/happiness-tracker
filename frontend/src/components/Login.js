@@ -31,7 +31,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="login">
-        <p>Please Enter Your Full Name</p>
+        <h3 style={{display:"flex", justifyContent:"center"}}>Please Enter Your Full Name</h3>
         <form 
           className="form"
           onSubmit={this.handleSubmit}
@@ -43,8 +43,10 @@ export default class Login extends Component {
             onChange={this.handleChange}
           />
           <input 
+            id="loginSubmit"
             className="button"
-            type="submit" 
+            type="submit"
+            value="Sign In" 
           />
         </form>
         {this.state.error ? <p>{this.state.error}</p> : null}

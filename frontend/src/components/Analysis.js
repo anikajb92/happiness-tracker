@@ -43,8 +43,8 @@ export default class Analysis extends Component {
     return (
       <div>
         <Chart
-          width={'600px'}
-          height={'400px'}
+          width={'300px'}
+          height={'450px'}
           chartType="AreaChart"
           loader={<div>Loading Chart</div>}
           data={this.state.dateMood}

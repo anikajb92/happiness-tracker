@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import {BrowserRouter, Router, Switch, Route, Link} from 'react-router-dom';
+
 import Welcome from './components/Welcome';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -13,7 +14,15 @@ export default class App extends Component {
 
   state = {
     user: {},
-    selectedDate: null
+    selectedDate: null,
+    isLoggedIn: false
+  }
+
+  componentDidMount() {
+    const name = localStorage.name
+    if (name) {
+      this.login(name)
+    }
   }
 
   login = (name) => {
@@ -33,11 +42,21 @@ export default class App extends Component {
       }
       else{
         this.setState({
-          user: results
+          user: results,
+          isLoggedIn: true
         })
+        localStorage.setItem("name", results.name) // will keep user logged in upon refresh
         localStorage.setItem("id", results.id)
       }
       return results
+    })
+  }
+
+  logout = () => {
+    localStorage.clear()
+    this.setState({
+      user: [],
+      isLoggedIn: false
     })
   }
 
@@ -53,58 +72,65 @@ export default class App extends Component {
   render() {
     return (
         <div className="boxContainer">
-            <Welcome user={this.state.user}/>
+            <Welcome 
+              user={this.state.user}
+              logged={this.state.isLoggedIn}
+            />
             <div className="common">
-            <Switch>
-              <Route 
-                exact path="/"
-                render={() => 
-                  <Home
-                    user={this.state.user}
-                    selectDate={this.selectDate}
-                    selectedDate={this.state.selectedDate}
-                  />
-                }
-              />
-              <Route
-                path="/calendar"
-                render={(routerprops) =>
-                  <Calendar
-                    selectDate={this.selectDate}
-                    {...routerprops}
-                  />
-                }
-              /> 
-              <Route
-                path="/analysis"
-                render={() =>
-                  <Analysis
-                    selectDate={this.selectDate}
-                  />
-                }
-              /> 
-              <Route 
-                path="/login"
-                render={(routerprops) =>
-                  <Login 
-                    login={this.login}
-                    {...routerprops}
-                  />
-                }  
-              />
-              <Route 
-                path="/form"
-                render={(routerprops) =>
-                  <Form 
+              <Switch>
+              {this.state.isLoggedIn? (
+                <>
+                <Route 
+                  exact path="/"
+                  render={() => 
+                    <Home
+                      user={this.state.user}
+                      selectDate={this.selectDate}
+                      selectedDate={this.state.selectedDate}
+                    />
+                  }
+                />
+                <Route
+                  path="/calendar"
+                  render={(routerprops) =>
+                    <Calendar
+                      selectDate={this.selectDate}
+                      {...routerprops}
+                    />
+                  }
+                /> 
+                <Route
+                  path="/analysis"
+                  render={() =>
+                    <Analysis
+                      selectDate={this.selectDate}
+                    />
+                  }
+                /> 
+                <Route 
+                  path="/form"
+                  render={(routerprops) =>
+                    <Form 
                     user={this.state.user}
                     selectedDate={this.state.selectedDate}
                     selectDate={this.selectDate}
-                  />
-                }  
-              />
-            </Switch>
-            </div>
-            <Navbar />
+                    />
+                  }  
+                />
+                <Navbar logged={this.state.isLoggedIn}/>
+              </>) : (
+                <Route 
+                  path="/login"
+                  render={(routerprops) =>
+                    <Login 
+                      login={this.login}
+                      {...routerprops}
+                    />
+                  }  
+                />
+              )}
+              </Switch>
+              </div>
         </div>
     )
   }
