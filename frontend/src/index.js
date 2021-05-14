@@ -8,7 +8,10 @@ import {BrowserRouter, Router, Switch, Route, Link} from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     <div className="AppContainer">
-      <BrowserRouter>
+      <div className="yellowBackDrop" id="back"></div>
+      <div className="yellowBackDrop" id="left"></div>
+      <div className="yellowBackDrop" id="right"></div>
+    <BrowserRouter>
       <App />
       </BrowserRouter>
     </div>

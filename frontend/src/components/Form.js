@@ -63,6 +63,7 @@ export default class Form extends Component {
             <input 
               type="date" 
               name="date" 
+              style={{marginTop:"3px"}}
               className="placeholder"
               value={this.state.values.date}
               onChange={this.handleChange}
@@ -108,10 +109,10 @@ export default class Form extends Component {
           </label>
           <br/>
           <label> Were you creative today?  
-          <select name="creative" value={this.state.values.creative} onChange={this.handleChange}>
-            <option selected value="null">Select</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <select name="creative" value={this.state.values.creative} onChange={this.handleChange}>
+              <option selected value="null">Select</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
           </label>
           <br/>
@@ -134,10 +135,12 @@ export default class Form extends Component {
             ></input>
           </label>
           <br/>
-        <input 
-          className="button"
-          type="submit" 
-        />
+        <div className="buttondiv">
+          <input 
+            className="button"
+            type="submit" 
+          />
+        </div>
       </form>
       </div>
     )

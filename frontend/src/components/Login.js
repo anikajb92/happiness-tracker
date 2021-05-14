@@ -53,23 +53,26 @@ export default class Login extends Component {
               onSubmit={this.handleSubmit}
             >
               {this.props.isLoggedIn? (
-                <>
-                  Thanks for being here!
+                <> Thanks for being here!
                 </>) : (
-                  <input  
-                    type="text"
-                    name="name"
-                    placeholder="First and Last"
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                  />
+                  <div className="loginNameContainer">
+                    <input  
+                      type="text"
+                      name="name"
+                      placeholder="First and Last"
+                      value={this.state.name}
+                      onChange={this.handleChange}
+                    />
+                  </div>
                 )}
-              <input 
-                id="loginSubmit"
-                className="button"
-                type="submit"
-                value={this.props.isLoggedIn? "Sign Out" : "Sign In"}
-              />
+              <div className="buttondiv">
+                <input 
+                  id="loginSubmit"
+                  className="button"
+                  type="submit"
+                  value={this.props.isLoggedIn? "Sign Out" : "Sign In"}
+                />
+              </div>
             </form>
           {this.state.error ? <p style={{color:"red", display:"flex", flexWrap:"wrap" }}>{this.state.error}</p> : null}
         </div>

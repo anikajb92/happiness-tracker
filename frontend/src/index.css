@@ -23,6 +23,7 @@ html, body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fceeb6;
 }
 
 code {
@@ -39,32 +40,56 @@ code {
     justify-content: center;
     margin-top: 150px;
   }
+
   
-  .orb {
-    height: 100px;
-    width: 100px;
-    border-radius: 200px;
-    background: #1F7A8C;
-    margin: auto;
-    margin-top: 200px;
-    z-index: -1;
+  .yellowBackDrop#back{
+    width: 480px;
+    height: 480px;
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 50%;
+    transform: rotate(110deg);
+    top: -120px;
+    left: 450px;
+    background: rgba(241,196,15, 0.6);
+    background: linear-gradient(
+      58deg,
+      rgba(241,196,15,0.6) 20%,
+      rgba(243,172,18,0.6) 100%
+    );
+    margin: 1px;
   }
-  
-  .orb_1 {
-    animation-name:orb_1;
-    animation-duration: 5s;
-    animation-delay: 0s;
-    animation-iteration-count:infinite;
-    animation-timing-function: ease-in-out;
-    animation-direction: alternate;
+  .yellowBackDrop#left{
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    display: flex;
+    border-radius: 50%;
+    transform: rotate(67deg);
+    top: 700px;
+    left: -300px;
+    background: rgba(241,196,15, 0.6);
+    background: linear-gradient(
+      58deg,
+      rgba(241,196,15,0.6) 20%,
+      rgba(243,172,18,0.6) 100%
+    );
+    margin: 1px;
   }
-  
-  @keyframes orb_1 {
-    from { transform: scale(1); background: #DB222A;}
-       to { transform: scale(3); background: #BFDBF7;}
+  .yellowBackDrop#right{
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    display: flex;
+    border-radius: 50%;
+    transform: rotate(67deg);
+    top: 500px;
+    left: 1200px;
+    background: rgba(241,196,15, 0.6);
+    background: linear-gradient(
+      58deg,
+      rgba(241,196,15,0.6) 20%,
+      rgba(243,172,18,0.6) 100%
+    );
+    margin: 1px;
   }
-  

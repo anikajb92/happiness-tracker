@@ -33,6 +33,7 @@ render() {
         isMultiSelection={true}
         change={this.props.selectDate}
         onClick={this.handleClick}
+        cssClass="calendarDay"
       />
       <div className="quotebox">
         <div className="quote">
