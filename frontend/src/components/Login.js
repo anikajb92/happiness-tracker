@@ -71,7 +71,7 @@ export default class Login extends Component {
                 value={this.props.isLoggedIn? "Sign Out" : "Sign In"}
               />
             </form>
-          {this.state.error ? <p style={{color:"red"}}>{this.state.error}</p> : null}
+          {this.state.error ? <p style={{color:"red", display:"flex", flexWrap:"wrap" }}>{this.state.error}</p> : null}
         </div>
       </div>
     )
