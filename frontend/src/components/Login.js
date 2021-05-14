@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Yogi from '../images/yogi.png'
 
 export default class Login extends Component {
 
@@ -31,14 +32,16 @@ export default class Login extends Component {
   render() {
     return (
       <div className="login">
+        <img className="yogi" src={Yogi} alt="yogi"></img>
         <h3 style={{display:"flex", justifyContent:"center"}}>Please Enter Your Full Name</h3>
-        <form 
+        <form id="loginName"
           className="form"
           onSubmit={this.handleSubmit}
         >
           <input  
             type="text"
             name="name"
+            placeholder="First and Last"
             value={this.state.name}
             onChange={this.handleChange}
           />

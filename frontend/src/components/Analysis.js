@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Chart from "react-google-charts";
+import { AiOutlinePieChart } from 'react-icons/ai';
 
 export default class Analysis extends Component {
 
@@ -22,7 +23,7 @@ export default class Analysis extends Component {
   something = (results) => {
     console.log("results", results)
     const eachDay = results.map(i => i )
-    eachDay.unshift(['x', 'mood', 'weather', 'sleep'])
+    eachDay.unshift(['day', 'mood', 'weather', 'sleep'])
     eachDay.sort(function(a, b) {
       return a - b;
     })
@@ -30,32 +31,32 @@ export default class Analysis extends Component {
     this.setState({
       dateMood: eachDay
     })
-    // console.log(data)
-    // results.map(result => [...result])
-
-    // const rows = results.split('",');
-    // const indi = Array.from(rows);
-    // console.log(indi)
   }
   
 
   render() {
     return (
-      <div>
+      <div className="analysis">
+        <h4><em>"Chart the positive changes in your daily life"</em></h4>
         <Chart
-          width={'300px'}
+          width={'340px'}
           height={'450px'}
           chartType="AreaChart"
-          loader={<div>Loading Chart</div>}
-          data={this.state.dateMood}
-          options={{
-            hAxis: {
-              title: 'Days In The Month Of May, 2021',
-            },
-            vAxis: {
-              title: 'Happiness',
-            },
-          }}
+          // loader={}
+            data={this.state.dateMood}
+            options={{
+              hAxis: {
+                title: 'Days In The Month Of May, 2021',
+              },
+              vAxis: {
+                title: 'Happiness',
+              },
+              series: {
+                0: { color: '#e2431e' },
+                1: { color: '#e7711b' },
+                2: { color: '#f1ca3a' }
+            }
+            }}
           rootProps={{ 'data-testid': '1' }}
         />
       </div>
