@@ -46,7 +46,9 @@ export default class Form extends Component {
       body: JSON.stringify({...this.state.values, user_id: localStorage.id})
     })
     .then(response => response.json())
-    .then(results => console.log("once data gets posted to backend, results show", results))
+    .then(results => {
+      this.props.history.push('/analysis')
+    })
   }
 
   render() {
@@ -77,18 +79,19 @@ export default class Form extends Component {
               onChange={this.handleChange}
             ></input>
           </label>
-          <label> Did you meditate today?
+          <br/>
+          <label> Did you meditate today?  
             <select name="meditation" value={this.state.values.meditation} onChange={this.handleChange}>
-              <option className="placeholder" selected value="null">Please select</option>
-              <option value="true">Yes, I'm zen</option>
+              <option selected value="null">Select</option>
+              <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
           </label>
           <br/>
-          <label> Did you workout today?
+          <label> Did you workout today?  
             <select name="workout" value={this.state.values.workout} onChange={this.handleChange}>
-              <option className="placeholder" selected value="null">Please select</option>
-              <option value="true">Yes, I'm sweaty</option>
+              <option selected value="null">Select</option>
+              <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
           </label>
@@ -103,18 +106,19 @@ export default class Form extends Component {
               onChange={this.handleChange}
             ></input>
           </label>
-          <label> Were you creative today?
+          <br/>
+          <label> Were you creative today?  
           <select name="creative" value={this.state.values.creative} onChange={this.handleChange}>
-              <option selected value="null">Please select</option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
+            <option selected value="null">Select</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
             </select>
           </label>
           <br/>
-          <label> Were you social today?
+          <label> Were you social today?  
           <select name="social" value={this.state.values.social} onChange={this.handleChange}>
-              <option selected value="null">Please select</option>
-              <option value="true">Yes</option>
+            <option selected value="null">Select</option>
+            <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
           </label>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Chart from "react-google-charts";
+import { AiOutlinePieChart } from 'react-icons/ai';
 
 export default class Analysis extends Component {
 
@@ -11,7 +12,6 @@ export default class Analysis extends Component {
     fetch('http://localhost:9393/moods')
     .then(response => response.json())
     .then(results => {
-      console.log(results)
       this.something(results)
       this.setState({
         dateMood: results
@@ -20,42 +20,42 @@ export default class Analysis extends Component {
   }
 
   something = (results) => {
-    console.log("results", results)
     const eachDay = results.map(i => i )
-    eachDay.unshift(['x', 'mood', 'weather', 'sleep'])
+    eachDay.unshift(['day', 'mood', 'weather', 'sleep'])
     eachDay.sort(function(a, b) {
       return a - b;
     })
-    console.log(eachDay)
     this.setState({
       dateMood: eachDay
     })
-    // console.log(data)
-    // results.map(result => [...result])
-
-    // const rows = results.split('",');
-    // const indi = Array.from(rows);
-    // console.log(indi)
   }
   
 
   render() {
     return (
-      <div>
+      <div className="analysis">
+        <div className="quoteboxie">
+          <h4>Chart the positive changes in your daily life with Bliss Analytics.</h4>
+        </div>
         <Chart
-          width={'300px'}
-          height={'450px'}
+          width={'360px'}
+          height={'400px'}
           chartType="AreaChart"
-          loader={<div>Loading Chart</div>}
-          data={this.state.dateMood}
-          options={{
-            hAxis: {
-              title: 'Days In The Month Of May, 2021',
-            },
-            vAxis: {
-              title: 'Happiness',
-            },
-          }}
+          // loader={}
+            data={this.state.dateMood}
+            options={{
+              hAxis: {
+                title: 'Days In The Month Of May, 2021',
+              },
+              vAxis: {
+                title: 'Happiness',
+              },
+              series: {
+                0: { color: '#e2431e' },
+                1: { color: '#e7711b' },
+                2: { color: '#f1ca3a' }
+            }
+            }}
           rootProps={{ 'data-testid': '1' }}
         />
       </div>
