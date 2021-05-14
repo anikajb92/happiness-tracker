@@ -21,7 +21,7 @@ class Application
         return [
           401,
           {'Content-Type' => 'application/json'},
-          [{error: "No user found. Unable to login"}.to_json]
+          [{error: "Eek! Sorry, no user was found. Please try again."}.to_json]
         ]
       end 
     end

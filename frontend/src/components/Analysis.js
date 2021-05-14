@@ -12,7 +12,6 @@ export default class Analysis extends Component {
     fetch('http://localhost:9393/moods')
     .then(response => response.json())
     .then(results => {
-      console.log(results)
       this.something(results)
       this.setState({
         dateMood: results
@@ -21,13 +20,11 @@ export default class Analysis extends Component {
   }
 
   something = (results) => {
-    console.log("results", results)
     const eachDay = results.map(i => i )
     eachDay.unshift(['day', 'mood', 'weather', 'sleep'])
     eachDay.sort(function(a, b) {
       return a - b;
     })
-    console.log(eachDay)
     this.setState({
       dateMood: eachDay
     })
@@ -37,10 +34,12 @@ export default class Analysis extends Component {
   render() {
     return (
       <div className="analysis">
-        <h4><em>"Chart the positive changes in your daily life"</em></h4>
+        <div className="quoteboxie">
+          <h4>Chart the positive changes in your daily life with Bliss Analytics.</h4>
+        </div>
         <Chart
-          width={'340px'}
-          height={'450px'}
+          width={'360px'}
+          height={'400px'}
           chartType="AreaChart"
           // loader={}
             data={this.state.dateMood}

@@ -38,7 +38,7 @@ export default class App extends Component {
     .then(response => response.json())
     .then(results => {
       if(results.error){
-        alert(results.error)
+        console.log(results.error)
       }
       else{
         this.setState({
@@ -74,6 +74,7 @@ export default class App extends Component {
         <div className="boxContainer">
             <Welcome 
               user={this.state.user}
+              isLoggedIn={this.state.isLoggedIn}
             />
             <div className="common">
               <Switch>
@@ -113,6 +114,7 @@ export default class App extends Component {
                     user={this.state.user}
                     selectedDate={this.state.selectedDate}
                     selectDate={this.selectDate}
+                    {...routerprops}
                     />
                   }  
                 />
@@ -121,6 +123,9 @@ export default class App extends Component {
                   render={(routerprops) =>
                     <Login 
                       login={this.login}
+                      user={this.state.user}
+                      isLoggedIn={this.state.isLoggedIn}
+                      logout={this.logout}
                       {...routerprops}
                     />
                   }  
@@ -131,6 +136,9 @@ export default class App extends Component {
                   render={(routerprops) =>
                     <Login 
                       login={this.login}
+                      user={this.state.user}
+                      isLoggedIn={this.state.isLoggedIn}
+                      logout={this.logout}
                       {...routerprops}
                     />
                   }  
@@ -138,7 +146,7 @@ export default class App extends Component {
               )}
               </Switch>
               </div>
-              <Navbar logged={this.state.isLoggedIn}/>
+              <Navbar isLoggedIn={this.state.isLoggedIn}/>
         </div>
     )
   }

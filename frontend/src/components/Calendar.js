@@ -20,20 +20,26 @@ export default class Calendar extends Component {
       })
   }
 
-  // handleClick = () => {
-  //   this.props.history.push('/form')
-  // }
+  handleClick = () => {
+    this.props.history.push('/form')
+  }
 
 render() {
   return (
-    <div>
+    <div className="calendar">
       {/* <h1> Calendar Here </h1> */}
       <CalendarComponent 
         values={this.state.dates}
         isMultiSelection={true}
         change={this.props.selectDate}
-        // onClick={this.handleClick}
+        onClick={this.handleClick}
       />
+      <div className="quotebox">
+        <div className="quote">
+          <h4><em>"Every day can be a celebration"</em></h4>
+          <h4><em>"Make time to do the things you love"</em></h4>
+        </div>
+      </div>
     </div>
   )
 }

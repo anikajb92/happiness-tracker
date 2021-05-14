@@ -46,7 +46,9 @@ export default class Form extends Component {
       body: JSON.stringify({...this.state.values, user_id: localStorage.id})
     })
     .then(response => response.json())
-    .then(results => console.log("once data gets posted to backend, results show", results))
+    .then(results => {
+      this.props.history.push('/analysis')
+    })
   }
 
   render() {

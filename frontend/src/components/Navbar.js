@@ -10,13 +10,17 @@ export default function NavBar(props) {
 
   return (
     <div className="navsection">
-      <nav id="navbar" >
-        <Link className="link" to="/login"><IoMdLogIn size={30} className="icon"/></Link>
-        {/* <Link className="link" to="/">Home</Link> */}
-        <Link className="link" to="/calendar" ><BiCalendarHeart size={30} className="iconc"/></Link>
-        <Link className="link" to="/form"><AiOutlineForm size={30} className="iconc" /></Link>
-        <Link className="link" to="/analysis"><AiOutlinePieChart size={30} className="icon"/></Link>
-      </nav>
+      {props.isLoggedIn? (
+      <>
+        <nav id="navbar" >
+          <Link className="link" to="/login"><IoMdLogIn size={30} className="icon"/></Link>
+          {/* <Link className="link" to="/">Home</Link> */}
+          <Link className="link" to="/calendar" ><BiCalendarHeart size={30} className="iconc"/></Link>
+          <Link className="link" to="/form"><AiOutlineForm size={30} className="iconc" /></Link>
+          <Link className="link" to="/analysis"><AiOutlinePieChart size={30} className="icon"/></Link>
+        </nav>
+      </>) : (null)
+      }
     </div>
   );
 }

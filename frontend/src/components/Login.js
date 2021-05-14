@@ -15,44 +15,64 @@ export default class Login extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.login(this.state.name)
-      .then(response => {
-        if(response.id){
-          this.props.history.push('/calendar')
+    if(this.props.isLoggedIn){
+      this.props.logout()
+    }
+    else {
+      event.preventDefault();
+      this.props.login(this.state.name)
+        .then(response => {
+          if(response.id){
+            this.props.history.push('/calendar')
+          }
+          else {
+            this.setState({
+              error: response.error
+            })
         }
-        else {
-          this.setState({
-            error: response.error
-          })
-      }
-    })
+      })
+    }
   }
 
   render() {
     return (
       <div className="login">
-        <img className="yogi" src={Yogi} alt="yogi"></img>
-        <h3 style={{display:"flex", justifyContent:"center"}}>Please Enter Your Full Name</h3>
-        <form id="loginName"
-          className="form"
-          onSubmit={this.handleSubmit}
-        >
-          <input  
-            type="text"
-            name="name"
-            placeholder="First and Last"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <input 
-            id="loginSubmit"
-            className="button"
-            type="submit"
-            value="Sign In" 
-          />
-        </form>
-        {this.state.error ? <p>{this.state.error}</p> : null}
+        <div className="yogibox">
+          <img className="yogi" src={Yogi} alt="yogi"></img>
+        </div>
+        <div className="loginform">
+          {this.props.isLoggedIn? (
+          <>
+            <br/>
+            You are logged in as {this.props.user.name}.
+          </>) : (
+            <h3 style={{display:"flex", justifyContent:"center"}}>Please Enter Your Full Name</h3>
+          )}
+            <form id="loginName"
+              className="form"
+              onSubmit={this.handleSubmit}
+            >
+              {this.props.isLoggedIn? (
+                <>
+                  Thanks for being here!
+                </>) : (
+                  <input  
+                    type="text"
+                    name="name"
+                    placeholder="First and Last"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                  />
+                )}
+              <input 
+                id="loginSubmit"
+                className="button"
+                type="submit"
+                value={this.props.isLoggedIn? "Sign Out" : "Sign In"}
+              />
+            </form>
+          {this.state.error ? <p style={{color:"red"}}>{this.state.error}</p> : null}
+        </div>
       </div>
     )
   }
