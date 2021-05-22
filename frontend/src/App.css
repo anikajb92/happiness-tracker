@@ -16,7 +16,7 @@ body {
   border: solid (241,196,15);
   border-radius: 19px;
   background-color: #fff;
-  box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
+  box-shadow: 0 0 8px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;
 }
