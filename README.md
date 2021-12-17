@@ -27,27 +27,27 @@ Bliss is a happiness tracker that aggregates user data into broader analytics an
 
  To run this project locally on your machine:
 
-### `cd backend`
+`cd backend`
 
 Navigate into the backend folder
 
-### `bundle install`
+`bundle install`
 
 Install gem files and dependencies
 
-### `shotgun`
+`shotgun`
 
 To start the backend server
 
-### `cd frontend`
+`cd frontend`
 
 Navigate to the frontend folder
 
-### `npm install`
+`npm install`
 
 Install node packages
 
-### `npm start`
+`npm start`
 
 Now you can view the project in your browser
 
