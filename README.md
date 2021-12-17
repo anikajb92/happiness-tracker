@@ -19,7 +19,7 @@ Bliss is a happiness tracker that aggregates user data into broader analytics an
 User's full name is conditionally rendered on profile page upon login authentication
 ![profile page gif](https://media.giphy.com/media/vHX5qSLVO4nvmIvoMC/giphy.gif)
 
-Users can add daily data entry, date is prefilled on next page
+Adding daily user data: Selected date on calendar is prefilled on the next page
 ![data entry gif](https://media.giphy.com/media/0sqFHdEUGgFohRBkqy/giphy.gif)
 
 ## Technologies 
