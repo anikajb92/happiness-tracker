@@ -16,6 +16,8 @@ Bliss is a happiness tracker that aggregates user data into broader analytics an
 
 ## Preview
 
+![profile page gif](https://media.giphy.com/media/vHX5qSLVO4nvmIvoMC/giphy.gif)
+
 ## Technologies 
 * React
 * Ruby 
