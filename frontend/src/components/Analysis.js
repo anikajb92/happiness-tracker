@@ -12,14 +12,14 @@ export default class Analysis extends Component {
     fetch('http://localhost:9393/moods')
     .then(response => response.json())
     .then(results => {
-      this.something(results)
+      this.formatDate(results)
       this.setState({
         dateMood: results
       })
     })
   }
 
-  something = (results) => {
+  formatDate = (results) => {
     const eachDay = results.map(i => i )
     eachDay.unshift(['day', 'mood', 'weather', 'sleep'])
     eachDay.sort(function(a, b) {

@@ -59,9 +59,38 @@ Now you can view the project in your browser
 
 ## Code Examples
 
-```def moods
+```ruby
+def moods
     self.entries.map do |entry|
       date = entry.date.strftime("%d").to_i
       [date, entry.mood, entry.weather, entry.sleep]
     end.sort
-  end ```
+  end 
+```
+```javascript
+state = {
+    dateMood: []
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:9393/moods')
+    .then(response => response.json())
+    .then(results => {
+      this.formatDate(results)
+      this.setState({
+        dateMood: results
+      })
+    })
+  }
+
+  formatDate = (results) => {
+    const eachDay = results.map(i => i )
+    eachDay.unshift(['day', 'mood', 'weather', 'sleep'])
+    eachDay.sort(function(a, b) {
+      return a - b;
+    })
+    this.setState({
+      dateMood: eachDay
+    })
+  }
+ ``` 
