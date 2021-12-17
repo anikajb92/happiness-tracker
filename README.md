@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Bliss
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built by Anika Bernstein with a React.js frontend and a Ruby Rack backend.
 
 ## Available Scripts
 
