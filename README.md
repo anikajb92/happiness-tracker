@@ -3,11 +3,11 @@
 
 ## Table of Contents
 
-*[General Info](#general-info)
-*[Preview](#preview)
-*[Technologies](#technologies)
-*[Setup](#setup)
-*[Code Examples](#code-examples)
+* [General Info](#general-info)
+* [Preview](#preview)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Code Examples](#code-examples)
 
 ## General Info
 
@@ -29,7 +29,7 @@ Adding daily user data: Selected date on calendar is prefilled on the next page
 * Google Calendar
 * Google Charts
 
-## Setup
+## Launch
 
  To run this project locally on your machine:
 
@@ -59,3 +59,9 @@ Now you can view the project in your browser
 
 ## Code Examples
 
+```def moods
+    self.entries.map do |entry|
+      date = entry.date.strftime("%d").to_i
+      [date, entry.mood, entry.weather, entry.sleep]
+    end.sort
+  end ```
